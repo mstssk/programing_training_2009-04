@@ -1,0 +1,15 @@
+mysql> delete from userinfo where userid=5;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select uname from userinfo;
++----------+
+| uname    |
++----------+
+| H—tŒ´Šw |
+| _“c–¾   |
+| ã–ìL   |
+| “üŠÔ—Î   |
++----------+
+4 rows in set (0.00 sec)
+
+mysql>

@@ -1,0 +1,11 @@
+mysql> select productid, productnm, price, quantity
+    -> from productinfo where productnm like '%java%';
++-----------+--------------------------+-------+----------+
+| productid | productnm                | price | quantity |
++-----------+--------------------------+-------+----------+
+| P0001     | 世界一簡単なJavaの本     |  2500 |       12 |
+| P0003     | 楽しいJavaプログラミング |  3500 |        5 |
++-----------+--------------------------+-------+----------+
+2 rows in set (0.02 sec)
+
+mysql>

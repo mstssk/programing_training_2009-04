@@ -1,0 +1,44 @@
+mysql> update bookinfo set booknm='サルでもネコでもよくわかるかもJava' where isb
+n='4-5312-0202-2';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update category set categorynm='その他' where id='999';
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> update category set categorynm='その他' where categoryid='999';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from bookinfo;
++---------------+------------------------------------+-------+------------+-----
+-------+
+| isbn          | booknm                             | price | publishnm  | cate
+goryid |
++---------------+------------------------------------+-------+------------+-----
+-------+
+| 4-0010-1111-1 | 猫の一日                           |  2000 | 猫田出版   | 999
+       |
+| 4-5312-0202-2 | サルでもネコでもよくわかるかもJava |  1500 | 落葉社     | 001
+       |
+| 4-5555-4444-5 | データベースの基本の基本           |  2500 | 落葉社     | 002
+       |
+| 4-5677-0222-1 | 秋葉原グルメスポット特集           |  1000 | 秋葉原出版 | 999
+       |
+| 4-8899-6667-3 | 一日1時間Java問題集                |  3000 | ウィル     | 001
+       |
++---------------+------------------------------------+-------+------------+-----
+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from category;
++------------+--------------+
+| categoryid | categorynm   |
++------------+--------------+
+| 001        | Java         |
+| 002        | データベース |
+| 003        | PHP          |
+| 999        | その他       |
++------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql>

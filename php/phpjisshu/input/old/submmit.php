@@ -1,0 +1,41 @@
+<?php
+
+#POST‚³‚ê‚½‚Æ‚«
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  
+  # Šm”Fƒ{ƒ^ƒ“‰Ÿ‰º submit‚µ‚½
+  if(isset($_POST["submit"])){
+  
+  # “o˜^ƒ{ƒ^ƒ“‰Ÿ‰º commit‚µ‚½
+  }elseif(isset($_POST["commit"])){
+  
+  }
+}
+
+
+
+
+# •`‰æ
+echo <<<_TEMPLATE_
+<html>
+<head><title>IT-Lab. uÀ“o˜^</title></head>
+<body><div>
+<h1>$pagetitle</h1>
+<p>¦ $message_comment</p>
+<div id="errors">$message_error</div>
+<form action="./regist.php" method="POST" enctype="multipart/form-data">
+<p><span class="input_title">uÀ”Ô†&nbsp;¦</span></p>
+<p><span class="input_title">uÀ–¼&nbsp;¦</span>$form_coursename</p>
+<p><span class="input_title">uÀŠJÃ“ú&nbsp;¦</span>$form_thedate_year”N&nbsp;$form_thedate_monthŒ&nbsp;$form_thedate_day“ú</p>
+<p><span class="input_title">ŠJn&nbsp;¦</span>$form_starttime_h&nbsp;$form_starttime_m&nbsp;•ª</p>
+<p><span class="input_title">I—¹&nbsp;¦</span>$form_endtime_h&nbsp;$form_endtime_m&nbsp;•ª</p>
+<p><span class="input_title">’èˆõ&nbsp;¦</span>$form_vacantseatsl</p>
+<input $back_button_property />
+<input $next_button_property />
+</form>
+</div>
+</body>
+</html>
+_TEMPLATE_
+
+?>

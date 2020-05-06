@@ -1,0 +1,47 @@
+mysql> update userinfo set prefecture='é‹ÊŒ§' where userid=4 ;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select uname,prefecture from userinfo where userid=4;
++--------+------------+
+| uname  | prefecture |
++--------+------------+
+| “üŠÔ—Î | é‹ÊŒ§     |
++--------+------------+
+1 row in set (0.00 sec)
+
+mysql> update productinfo set quantity=12 where productid='P0001';
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select productid, quantity from productinfo where productid='P0001';
++-----------+----------+
+| productid | quantity |
++-----------+----------+
+| P0001     |       12 |
++-----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select uname,prefecture from userinfo;
++----------+------------+
+| uname    | prefecture |
++----------+------------+
+| H—tŒ´Šw | “Œ‹ž“s     |
+| _“c–¾   | “Œ‹ž“s     |
+| ã–ìL   | “Œ‹ž“s     |
+| “üŠÔ—Î   | é‹ÊŒ§     |
+| —¼‘‘¾˜Y | “Œ‹ž“s     |
++----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select productid, quantity from productinfo;
++-----------+----------+
+| productid | quantity |
++-----------+----------+
+| P0001     |       12 |
+| P0002     |        6 |
+| P0003     |        5 |
++-----------+----------+
+3 rows in set (0.00 sec)
+
+mysql>

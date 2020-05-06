@@ -1,0 +1,170 @@
+mysql> insert into category (categoryid, categorynm) values ('001','Java');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use jisshu2;
+Database changed
+
+mysql> show tables;
++-------------------+
+| Tables_in_jisshu2 |
++-------------------+
+| bookinfo          |
+| bookpurchase      |
+| category          |
++-------------------+
+3 rows in set (0.05 sec)
+
+mysql> select * from category;
++------------+------------+
+| categoryid | categorynm |
++------------+------------+
+| 001        | Java       |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into category(categoryid, categorynm) values ('002', 'データベース
+');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into category(categoryid, categorynm) values ('003', 'PHP');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into category(categoryid, categorynm) values ('999', '未分類');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from category;
++------------+--------------+
+| categoryid | categorynm   |
++------------+--------------+
+| 001        | Java         |
+| 002        | データベース |
+| 003        | PHP          |
+| 999        | 未分類       |
++------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into bookinfo (isbn,booknm,price,publishnm,categoryid)
+    -> values ('4-0010-1111-1','猫の一日',2000,'猫田出版','999');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookinfo (isbn,booknm,price,publishnm,categoryid)
+    -> values ('4-5312-0202-2','サルでもイヌでもよくわかるかもJava',1500,'落葉社
+','001');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookinfo (isbn,booknm,price,publishnm,categoryid)
+    -> values ('4-5555-4444-5','データベースの基本の基本',2500,'落葉社','002');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookinfo (isbn,booknm,price,publishnm,categoryid)
+    -> values ('4-8899-6667-3','一日1時間Java問題集',3000,'ウィル','001');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into bookinfo (isbn,booknm,price,publishnm,categoryid)
+    -> values ('4-5677-0222-1','秋葉原グルメスポット特集',1000,'秋葉原出版','999
+');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from bookinfo;
++---------------+------------------------------------+-------+------------+-----
+-------+
+| isbn          | booknm                             | price | publishnm  | cate
+goryid |
++---------------+------------------------------------+-------+------------+-----
+-------+
+| 4-0010-1111-1 | 猫の一日                           |  2000 | 猫田出版   | 999
+       |
+| 4-5312-0202-2 | サルでもイヌでもよくわかるかもJava |  1500 | 落葉社     | 001
+       |
+| 4-5555-4444-5 | データベースの基本の基本           |  2500 | 落葉社     | 002
+       |
+| 4-5677-0222-1 | 秋葉原グルメスポット特集           |  1000 | 秋葉原出版 | 999
+       |
+| 4-8899-6667-3 | 一日1時間Java問題集                |  3000 | ウィル     | 001
+       |
++---------------+------------------------------------+-------+------------+-----
+-------+
+5 rows in set (0.02 sec)
+
+mysql> insert into bookinfo ('4-5677-0222-2','秋葉原グルメスポット特集',1000,'秋
+葉原出版','999');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near ''4-56
+77-0222-2','秋葉原グルメスポット特集',1000,'秋葉原出版','999')' at line 1
+mysql> desc bookinfo;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| isbn       | char(20)     | NO   | PRI |         |       |
+| booknm     | varchar(100) | NO   |     |         |       |
+| price      | int(11)      | NO   |     |         |       |
+| publishnm  | varchar(50)  | NO   |     |         |       |
+| categoryid | char(3)      | NO   | MUL |         |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> insert into bookinfo values('4-5677-0222-2','秋葉原グルメスポット特集',10
+00,'秋葉原出版','999');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> delete from bookinfo where isbn='4-5677-0222-2';
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from bookinfo;
++---------------+------------------------------------+-------+------------+-----
+-------+
+| isbn          | booknm                             | price | publishnm  | cate
+goryid |
++---------------+------------------------------------+-------+------------+-----
+-------+
+| 4-0010-1111-1 | 猫の一日                           |  2000 | 猫田出版   | 999
+       |
+| 4-5312-0202-2 | サルでもイヌでもよくわかるかもJava |  1500 | 落葉社     | 001
+       |
+| 4-5555-4444-5 | データベースの基本の基本           |  2500 | 落葉社     | 002
+       |
+| 4-5677-0222-1 | 秋葉原グルメスポット特集           |  1000 | 秋葉原出版 | 999
+       |
+| 4-8899-6667-3 | 一日1時間Java問題集                |  3000 | ウィル     | 001
+       |
++---------------+------------------------------------+-------+------------+-----
+-------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> insert into bookpurchase values ('1','4-5312-0202-2','2008/1/25',5);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into bookpurchase values ('2','4-5555-4444-5','2008/1/25',5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookpurchase values ('3','4-8899-6667-3','2008/1/25',5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookpurchase values ('4','4-5677-0222-1','2008/3/2',5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookpurchase values ('5','4-5677-0222-1','2008/3/8',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bookpurchase values ('6','4-5677-0222-1','2008/4/3',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> update bookpurchase set quantity=1 where id=4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from bookpurchase;
++----+---------------+--------------+----------+
+| id | isbn          | purchasedate | quantity |
++----+---------------+--------------+----------+
+| 1  | 4-5312-0202-2 | 2008-01-25   |        5 |
+| 2  | 4-5555-4444-5 | 2008-01-25   |        5 |
+| 3  | 4-8899-6667-3 | 2008-01-25   |        5 |
+| 4  | 4-5677-0222-1 | 2008-03-02   |        1 |
+| 5  | 4-5677-0222-1 | 2008-03-08   |        1 |
+| 6  | 4-5677-0222-1 | 2008-04-03   |        1 |
++----+---------------+--------------+----------+
+6 rows in set (0.01 sec)
+
+mysql>

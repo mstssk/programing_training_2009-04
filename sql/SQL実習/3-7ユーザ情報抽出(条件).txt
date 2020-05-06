@@ -1,0 +1,10 @@
+mysql> select prefecture, city, count(city) from userinfo
+    -> group by city having count(city) >= 2;
++------------+----------+-------------+
+| prefecture | city     | count(city) |
++------------+----------+-------------+
+| “Œ‹ž“s     | ç‘ã“c‹æ |           2 |
++------------+----------+-------------+
+1 row in set (0.00 sec)
+
+mysql>

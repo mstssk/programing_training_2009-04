@@ -1,0 +1,11 @@
+mysql> select categoryid,avg(price) from bookinfo group by categoryid having avg
+(price) >= 2000;
++------------+------------+
+| categoryid | avg(price) |
++------------+------------+
+| 001        |  2250.0000 |
+| 002        |  2500.0000 |
++------------+------------+
+2 rows in set (0.00 sec)
+
+mysql>

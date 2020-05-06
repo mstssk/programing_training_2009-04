@@ -1,0 +1,36 @@
+mysql> drop table bookpurchase;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_jisshu2 |
++-------------------+
+| bookinfo          |
+| category          |
++-------------------+
+2 rows in set (0.00 sec)
+
+mysql> create table bookpurchase(
+    -> id char(5) not null primary key,
+    -> isbn char(20) not null,
+    -> purchasedate date not null,
+    -> quantity int not null,
+    -> foreign key (isbn) references bookinfo(isbn)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near '' at
+line 1
+mysql> show tables;
++-------------------+
+| Tables_in_jisshu2 |
++-------------------+
+| bookinfo          |
+| bookpurchase      |
+| category          |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql>

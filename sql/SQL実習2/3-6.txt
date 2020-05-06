@@ -1,0 +1,10 @@
+mysql> select booknm,price from bookinfo where (select max(price) from bookinfo)
+=price;
++---------------------+-------+
+| booknm              | price |
++---------------------+-------+
+| ˆê“ú1ŽžŠÔJava–â‘èW |  3000 |
++---------------------+-------+
+1 row in set (0.09 sec)
+
+mysql>

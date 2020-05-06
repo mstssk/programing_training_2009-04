@@ -1,0 +1,85 @@
+Microsoft Windows XP [Version 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+
+Z:\>cd Z:\xampplite\mysql\bin
+
+Z:\xampplite\mysql\bin>mysql.exe -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 54 to server version: 5.0.27-community
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cdcol              |
+| hoge               |
+| masato             |
+| mysql              |
+| phpmyadmin         |
+| ppp                |
+| test               |
+| webauth            |
++--------------------+
+9 rows in set (0.03 sec)
+
+mysql> create database jisshu;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use jisshu:
+ERROR 1049 (42000): Unknown database 'jisshu:'
+mysql> use jisshu;
+Database changed
+mysql> create table userinfo(
+    -> userid int not null auto_increment,
+    -> uname varchar(40) not null,
+    -> uname_kana varchar(60) not null,
+    -> prefecture varchar(15) not null,
+    -> city varchar(20) not null,
+    -> oaddress varchar(100) not null,
+    -> tel varchar(20) not null,
+    -> sex varchar(3) not null,
+    -> birthday date not null,
+    -> mail varchar(255) not null,
+    -> indate date not null,
+    -> upddate timestamp not null default current_timestamp()
+    -> );
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto colum
+n and it must be defined as a key
+mysql> create table userinfo(
+    -> userid int not null auto_increment primary key,
+    -> uname varchar(40) not null,
+    -> uname_kana varchar(60) not null,
+    -> prefecture varchar(15) not null,
+    -> city varchar(20) not null,
+    -> oaddress varchar(100) not null,
+    -> tel varchar(20) not null,
+    -> sex varchar(3) not null,
+    -> birthday date not null,
+    -> mail varchar(255) not null,
+    -> indate date not null,
+    -> upddate timestamp not null default current_timestamp()
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_jisshu |
++------------------+
+| userinfo         |
++------------------+
+1 row in set (0.02 sec)
+
+mysql> create table productinfo (
+    -> productid char(5) not null primary key,
+    -> productnm varchar(100) not null,
+    -> price int not null,
+    -> quantity int not null,
+    -> indate date not null,
+    -> upddate timestamp not null default current_timestamp()
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql>

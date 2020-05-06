@@ -1,0 +1,86 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cdcol              |
+| hoge               |
+| jisshu             |
+| masato             |
+| mysql              |
+| phpmyadmin         |
+| ppp                |
+| test               |
+| webauth            |
++--------------------+
+10 rows in set (0.11 sec)
+
+mysql> use jisshu;
+Database changed
+mysql> show tables
+    -> ;
++------------------+
+| Tables_in_jisshu |
++------------------+
+| productinfo      |
+| userinfo         |
++------------------+
+2 rows in set (0.00 sec)
+
+mysql> create database jisshu2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use jisshu2;
+Database changed
+
+mysql> create table category(
+    -> categoryid char(3) not null primary key,
+    -> categorynm varchar(50) not null);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_jisshu2 |
++-------------------+
+| category          |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> create table bookinfo(
+    -> isbn char(20) not null primary key,
+    -> booknm varchar(100) not null,
+    -> price int not null,
+    -> publishnm varchar(50) not null,
+    -> categoryid char(3) not null,
+    -> foreign key (categoryid) references category(categoryid));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc category;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| categoryid | char(3)     | NO   | PRI |         |       |
+| categorynm | varchar(50) | NO   |     |         |       |
++------------+-------------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+mysql> create table bookpurchase(
+    -> id char(5) not null primary key,
+    -> isbn char(20) not null,
+    -> purchasedate date not null,
+    -> quantity int not null,
+    -> foreign key (isbn) references bookinfo(isbn)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_jisshu2 |
++-------------------+
+| bookinfo          |
+| bookpurchase      |
+| category          |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql>
